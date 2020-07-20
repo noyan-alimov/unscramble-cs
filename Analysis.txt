@@ -1,0 +1,20 @@
+Task 0:
+The Big O Notation is O(1)
+In terms of space, the code created two variables.
+
+Task 1:
+There are 5 for loops in total. The Big O in this case is O(n).
+The best, average and worst case scenarios do not differ really. The for loops have to go through each number to append them to the array.
+
+Task 2:
+There are 2 for loops. The Big O is O(n).
+
+Task 3:
+Part A:
+Big O is O(n). There are 3 for loops. In terms of space, two variables are created to store arrays.
+
+Part B:
+Big O is O(n).
+
+Task 4:
+Big O is O(n). 5 for loops and two variables are created to store arrays.
