@@ -25,27 +25,25 @@ Print a message:
 The list of numbers should be print out one per line in lexicographic order with no duplicates.
 """
 
-outgoing_call_numbers = []
+call_numbers = {}
 for call in calls:
-    outgoing_call_numbers.append(call[0])
-
+    call_numbers[call[0]] = True
 for call in calls:
-    if call[1] in outgoing_call_numbers:
-        outgoing_call_numbers.remove(call[1])
-
+    if call[1] in call_numbers:
+        call_numbers[call[1]] = False
 for text in texts:
-    if text[0] in outgoing_call_numbers:
-        outgoing_call_numbers.remove(text[0])
+    if text[0] in call_numbers:
+        call_numbers[text[0]] = False
+for text in texts:
+    if text[1] in call_numbers:
+        call_numbers[text[1]] = False
 
-    if text[1] in outgoing_call_numbers:
-        outgoing_call_numbers.remove(text[1])
 
-unique_nums = []
-
-for num in outgoing_call_numbers:
-    if num not in unique_nums:
-        unique_nums.append(num)
+outgoing_call_numbers = set()
+for k, v in call_numbers.items():
+    if v:
+        outgoing_call_numbers.add(k)
 
 print('These numbers could be telemarketers:')
-for num in sorted(unique_nums):
+for num in sorted(outgoing_call_numbers):
     print(num)

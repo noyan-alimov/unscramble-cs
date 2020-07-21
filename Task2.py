@@ -21,20 +21,42 @@ September 2016.".
 """
 
 
-seconds_list = []
-
-for call in calls:
-    seconds_list.append(int(call[3]))
-
-max_seconds = str(max(seconds_list))
-
-
-def find_number():
+def find_number_with_longest_time(calls):
+    nums = []
     for call in calls:
-        if max_seconds in call:
-            return call[0]
+        nums.append(call[0])
+        nums.append(call[1])
+
+    unique_nums = []
+    for num in nums:
+        if num not in unique_nums:
+            unique_nums.append(num)
+
+    unique_nums_obj = {}
+    for num in unique_nums:
+        unique_nums_obj[num] = 0
+
+    for call in calls:
+        if call[0] in unique_nums_obj:
+            unique_nums_obj[call[0]] += int(call[3])
+        if call[1] in unique_nums_obj:
+            unique_nums_obj[call[1]] += int(call[3])
+
+    seconds = []
+    for k, v in unique_nums_obj.items():
+        seconds.append(v)
+
+    max_seconds = max(seconds)
+
+    number = None
+    for k, v in unique_nums_obj.items():
+        if max_seconds == v:
+            number = k
+
+    return [number, max_seconds]
 
 
-number = find_number()
+result = find_number_with_longest_time(calls)
 
-print(f'{number} spent the longest time, {max_seconds} seconds, on the phone during September 2016')
+
+print(f'{result[0]} spent the longest time, {result[1]} seconds, on the phone during September 2016')

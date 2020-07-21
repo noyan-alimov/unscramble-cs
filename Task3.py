@@ -46,34 +46,33 @@ The percentage should have 2 decimal digits
 
 # Part A
 
-prefixes = []
+prefixes = set()
 for call in calls:
     if call[0].startswith('(080)'):
         if call[1].startswith('(0'):
-            prefixes.append(call[1].split(')')[0] + ')')
+            prefixes.add(call[1].split(')')[0] + ')')
         if call[1].startswith('7') or call[1].startswith('8') or call[1].startswith('9'):
-            prefixes.append(call[1][:4])
+            prefixes.add(call[1][:4])
         if call[1].startswith('140'):
-            prefixes.append(call[1][:3])
-
-unique_prefixes = []
-
-for prefix in prefixes:
-    if prefix not in unique_prefixes:
-        unique_prefixes.append(prefix)
+            prefixes.add(call[1][:3])
 
 print('The numbers called by people in Bangalore have codes: ')
-for prefix in sorted(unique_prefixes):
+for prefix in sorted(prefixes):
     print(prefix)
 
 
 # Part B
 
 calls_within_Bangalore = []
+calls_from_Bangalore = []
 for call in calls:
     if call[0].startswith('(080)') and call[1].startswith('(080)'):
         calls_within_Bangalore.append(call)
+    if call[0].startswith('(080)'):
+        calls_from_Bangalore.append(call)
 
-answer = round(len(calls_within_Bangalore) / len(calls) * 100, 2)
+
+answer = round(len(calls_within_Bangalore) /
+               len(calls_from_Bangalore) * 100, 2)
 
 print(f'{answer} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.')

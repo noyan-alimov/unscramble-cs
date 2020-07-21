@@ -23,22 +23,14 @@ tel_numbers = []
 
 for text in texts:
     tel_numbers.append(text[0])
-
-for text in texts:
     tel_numbers.append(text[1])
 
 for call in calls:
     tel_numbers.append(call[0])
-
-for call in calls:
     tel_numbers.append(call[1])
 
 
-unique_numbers = []
-
-for num in tel_numbers:
-    if num not in unique_numbers:
-        unique_numbers.append(num)
+unique_numbers = set(tel_numbers)
 
 print(
     f'There are {len(unique_numbers)} different telephone numbers in the records.')
