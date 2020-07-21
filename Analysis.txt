@@ -1,20 +1,35 @@
 Task 0:
 The Big O Notation is O(1)
-In terms of space, the code created two variables.
+We just take the first and the last element of the whole array.
 
 Task 1:
-There are 2 for loops in total. The Big O in this case is O(n).
+There are 2 for loops in total. The Big O in this case is O(n) because these loops are not nested.
 The best, average and worst case scenarios do not differ really. The for loops have to go through each number to append them to the array.
 
 Task 2:
-There are 6 for loops. The Big O is O(n).
+There are 6 non-nested for loops. The Big O is O(n).
 
 Task 3:
 Part A:
-Big O is O(log n). There are 3 for loops. In terms of space, one variable is created to store a set.
+Worst case complexity: O(n)
+Algorithm:
+  - initialise an empty set: O(1)
+  - map through calls list using if statements inside to add specific prefixes to an empty set: O(log n)
+  - map through the set to print the results: O(n)
 
 Part B:
-Big O is O(log n).
+Worst case complexity: O(log n)
+Algorithm:
+  - initialise two empty lists: O(1)
+  - map through calls list using if statements inside to add specific numbers to empty lists: O(log n)
+  - initialise a variable to do math calculation: O(1)
 
 Task 4:
-Big O is O(log n). 5 for loops and two variables are created to store one object and one set.
+Worst case complexity: 
+Algorithm:
+  - initialise an empty dictionary: O(1)
+  - map through calls list to add data to an empty dictionary: O(n)
+  - map through calls and texts lists using if statements inside to add data to dictionary: O(log n)
+  - initialise an empty set: O(1)
+  - map through the dictionary using if statements inside to add specific data to an empty set: O(log n)
+  - map through the set to print the results
